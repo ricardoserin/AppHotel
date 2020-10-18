@@ -13,7 +13,7 @@ Public Class ReservacionAD
             cmdR.Parameters.AddWithValue("@FechaLlegada", Obj.fechaLlegada)
             cmdR.Parameters.AddWithValue("@HoraLlegada", Obj.horaLlegada)
             cmdR.Parameters.AddWithValue("@idPersona", Obj.idPersona)
-            cmdR.Parameters.AddWithValue("@idTipoReservacion", Obj.idTipoReserva)
+            cmdR.Parameters.AddWithValue("@idTipoReservacion", 1)
             cn.Open()
             tr = cn.BeginTransaction
             cmdR.Transaction = tr
@@ -21,7 +21,7 @@ Public Class ReservacionAD
             cmdR.ExecuteNonQuery()
             cmdD.Parameters.Add("@idReservacion", SqlDbType.Int).Value = cmdR.Parameters.Item("@idReservacion").Value
             For Each det As ReservacionHab In Obj.listDetalle
-                cmdD.Parameters.Add("@idReservacion", SqlDbType.Int).Value = det.idReservacion
+                'cmdD.Parameters.Add("@idReservacion", SqlDbType.Int).Value = det.idReservacion
                 cmdD.Parameters.Add("@idHabitacion", SqlDbType.Int).Value = det.idHabitacion
                 cmdD.ExecuteNonQuery()
             Next

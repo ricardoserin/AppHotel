@@ -2,7 +2,7 @@
 Imports Capa_Entidad
 Public Class ReservacionAD
     Public Sub registrar_reservacion(Obj As Reservacion)
-        Dim cn As New SqlConnection("server=localhost; integrated security=true; database=BDHotel")
+        Dim cn As New SqlConnection("server=.; integrated security=true; database=BDHotel")
         Dim cmdR As New SqlCommand("sp_insert_reservacion", cn)
         Dim cmdD As New SqlCommand("sp_insert_reservacion_hab", cn)
         cmdR.CommandType = CommandType.StoredProcedure

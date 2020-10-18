@@ -2,7 +2,7 @@
 Imports System.Data.SqlClient
 Public Class HabitacionAD
     Public Function listarHabitaciones(objTH As TipoHabitacion) As List(Of Habitacion)
-        Dim cn As New SqlConnection("server=(localhost); integrated security=true; Database=BDHotel")
+        Dim cn As New SqlConnection("server=.; integrated security=true; Database=BDHotel")
         Dim cmd As New SqlCommand
         Dim lista As New List(Of Habitacion)
         Try
@@ -10,7 +10,7 @@ Public Class HabitacionAD
             cmd.Connection = cn
             cmd.CommandText = "sp_habitacion_tipo_habitacion"
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.Add("@idHabitacion", SqlDbType.Int).Value = objTH.idTipoHabitacion
+            cmd.Parameters.Add("@idTipoHabitacion", SqlDbType.Int).Value = objTH.idTipoHabitacion
             Dim oLector As SqlDataReader
             oLector = cmd.ExecuteReader
             While oLector.Read

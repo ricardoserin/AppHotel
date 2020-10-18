@@ -2,7 +2,7 @@
 Imports System.Data.SqlClient
 Public Class PersonaAD
     Public Function listarPersona(objA As Persona) As String
-        Dim cn As New SqlConnection("server=(localhost); integrated security=true; Database=BDHotel")
+        Dim cn As New SqlConnection("server=.; integrated security=true; Database=BDHotel")
         Dim cmd As New SqlCommand
         Try
             cn.Open()

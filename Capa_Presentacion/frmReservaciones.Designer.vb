@@ -22,20 +22,32 @@ Partial Class frmReservaciones
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.idPersona = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtNombrePersona = New System.Windows.Forms.TextBox()
         Me.GBHabitaciones = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.DTGVHabitaciones = New System.Windows.Forms.DataGridView()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnConsultarHabitaciones = New System.Windows.Forms.Button()
+        Me.cbxTiposHab = New System.Windows.Forms.ComboBox()
+        Me.TIPOHABITACIONBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDHotelDataSet = New Capa_Presentacion.BDHotelDataSet()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.TIPO_HABITACIONTableAdapter = New Capa_Presentacion.BDHotelDataSetTableAdapters.TIPO_HABITACIONTableAdapter()
+        Me.lblFechaActual = New System.Windows.Forms.Label()
         Me.GBHabitaciones.SuspendLayout()
+        CType(Me.DTGVHabitaciones, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TIPOHABITACIONBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BDHotelDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -72,9 +84,10 @@ Partial Class frmReservaciones
         '
         'GBHabitaciones
         '
+        Me.GBHabitaciones.Controls.Add(Me.DTGVHabitaciones)
         Me.GBHabitaciones.Controls.Add(Me.Button2)
-        Me.GBHabitaciones.Controls.Add(Me.Button1)
-        Me.GBHabitaciones.Controls.Add(Me.ComboBox1)
+        Me.GBHabitaciones.Controls.Add(Me.btnConsultarHabitaciones)
+        Me.GBHabitaciones.Controls.Add(Me.cbxTiposHab)
         Me.GBHabitaciones.Controls.Add(Me.Label3)
         Me.GBHabitaciones.Location = New System.Drawing.Point(41, 114)
         Me.GBHabitaciones.Name = "GBHabitaciones"
@@ -83,31 +96,13 @@ Partial Class frmReservaciones
         Me.GBHabitaciones.TabStop = False
         Me.GBHabitaciones.Text = "Habitaciones"
         '
-        'Label3
+        'DTGVHabitaciones
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 20)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(28, 13)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Tipo"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(47, 17)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(221, 21)
-        Me.ComboBox1.TabIndex = 1
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(275, 14)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(111, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Listar Habitaciones"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.DTGVHabitaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DTGVHabitaciones.Location = New System.Drawing.Point(13, 48)
+        Me.DTGVHabitaciones.Name = "DTGVHabitaciones"
+        Me.DTGVHabitaciones.Size = New System.Drawing.Size(518, 142)
+        Me.DTGVHabitaciones.TabIndex = 4
         '
         'Button2
         '
@@ -118,14 +113,62 @@ Partial Class frmReservaciones
         Me.Button2.Text = "Seleccionar habitación"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'btnConsultarHabitaciones
+        '
+        Me.btnConsultarHabitaciones.Location = New System.Drawing.Point(275, 14)
+        Me.btnConsultarHabitaciones.Name = "btnConsultarHabitaciones"
+        Me.btnConsultarHabitaciones.Size = New System.Drawing.Size(111, 23)
+        Me.btnConsultarHabitaciones.TabIndex = 2
+        Me.btnConsultarHabitaciones.Text = "Listar Habitaciones"
+        Me.btnConsultarHabitaciones.UseVisualStyleBackColor = True
+        '
+        'cbxTiposHab
+        '
+        Me.cbxTiposHab.DataSource = Me.TIPOHABITACIONBindingSource
+        Me.cbxTiposHab.DisplayMember = "Tipo"
+        Me.cbxTiposHab.FormattingEnabled = True
+        Me.cbxTiposHab.Location = New System.Drawing.Point(47, 17)
+        Me.cbxTiposHab.Name = "cbxTiposHab"
+        Me.cbxTiposHab.Size = New System.Drawing.Size(221, 21)
+        Me.cbxTiposHab.TabIndex = 1
+        Me.cbxTiposHab.ValueMember = "IdTipo_Habitacion"
+        '
+        'TIPOHABITACIONBindingSource
+        '
+        Me.TIPOHABITACIONBindingSource.DataMember = "TIPO_HABITACION"
+        Me.TIPOHABITACIONBindingSource.DataSource = Me.BDHotelDataSet
+        '
+        'BDHotelDataSet
+        '
+        Me.BDHotelDataSet.DataSetName = "BDHotelDataSet"
+        Me.BDHotelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(13, 20)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(28, 13)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Tipo"
+        '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DataGridView2)
         Me.GroupBox1.Location = New System.Drawing.Point(41, 316)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(537, 209)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Habitaciones reservadas"
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(7, 20)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(524, 183)
+        Me.DataGridView2.TabIndex = 0
         '
         'Button3
         '
@@ -154,11 +197,25 @@ Partial Class frmReservaciones
         Me.Button5.Text = "Cerrar"
         Me.Button5.UseVisualStyleBackColor = True
         '
+        'TIPO_HABITACIONTableAdapter
+        '
+        Me.TIPO_HABITACIONTableAdapter.ClearBeforeFill = True
+        '
+        'lblFechaActual
+        '
+        Me.lblFechaActual.AutoSize = True
+        Me.lblFechaActual.Location = New System.Drawing.Point(433, 32)
+        Me.lblFechaActual.Name = "lblFechaActual"
+        Me.lblFechaActual.Size = New System.Drawing.Size(42, 13)
+        Me.lblFechaActual.TabIndex = 9
+        Me.lblFechaActual.Text = "FECHA"
+        '
         'frmReservaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 615)
+        Me.Controls.Add(Me.lblFechaActual)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
@@ -172,6 +229,11 @@ Partial Class frmReservaciones
         Me.Text = "RESERVACIONES"
         Me.GBHabitaciones.ResumeLayout(False)
         Me.GBHabitaciones.PerformLayout()
+        CType(Me.DTGVHabitaciones, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TIPOHABITACIONBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BDHotelDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -183,11 +245,17 @@ Partial Class frmReservaciones
     Friend WithEvents txtNombrePersona As TextBox
     Friend WithEvents GBHabitaciones As GroupBox
     Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents btnConsultarHabitaciones As Button
+    Friend WithEvents cbxTiposHab As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
+    Friend WithEvents DTGVHabitaciones As DataGridView
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents BDHotelDataSet As BDHotelDataSet
+    Friend WithEvents TIPOHABITACIONBindingSource As BindingSource
+    Friend WithEvents TIPO_HABITACIONTableAdapter As BDHotelDataSetTableAdapters.TIPO_HABITACIONTableAdapter
+    Friend WithEvents lblFechaActual As Label
 End Class

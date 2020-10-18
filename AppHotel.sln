@@ -7,7 +7,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Capa_AccesoDatos", "Capa_Ac
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Capa_Entidad", "Capa_Entidad\Capa_Entidad.vbproj", "{A7B8B754-5C44-4BA3-BD8A-BB31A0CDA073}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Capa_Negocios", "Capa_Negocios\Capa_Negocios.vbproj", "{FD195753-079B-47B9-B9AA-16070B027F8A}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Capa_Negocio", "Capa_Negocios\Capa_Negocio.vbproj", "{FD195753-079B-47B9-B9AA-16070B027F8A}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Capa_Presentacion", "Capa_Presentacion\Capa_Presentacion.vbproj", "{D072EB9B-7144-4295-9269-FEB6366223FE}"
 EndProject

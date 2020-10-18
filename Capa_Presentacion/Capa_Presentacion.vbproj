@@ -121,9 +121,9 @@
       <Project>{a7b8b754-5c44-4ba3-bd8a-bb31a0cda073}</Project>
       <Name>Capa_Entidad</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Capa_Negocios\Capa_Negocios.vbproj">
+    <ProjectReference Include="..\Capa_Negocios\Capa_Negocio.vbproj">
       <Project>{fd195753-079b-47b9-b9aa-16070b027f8a}</Project>
-      <Name>Capa_Negocios</Name>
+      <Name>Capa_Negocio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

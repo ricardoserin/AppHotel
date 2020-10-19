@@ -3,8 +3,11 @@ Imports Capa_Entidad
 Public Class frmReservaciones
     Public NHabitaciones As Integer = 0
     Private lista As New List(Of ReservacionHab)
+    Private idPersona As New Integer
 
     Private Sub frmReservaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'BDHotelDataSet1.TIPO_RESERVACION' Puede moverla o quitarla según sea necesario.
+        Me.TIPO_RESERVACIONTableAdapter.Fill(Me.BDHotelDataSet1.TIPO_RESERVACION)
         'TODO: esta línea de código carga datos en la tabla 'BDHotelDataSet.TIPO_HABITACION' Puede moverla o quitarla según sea necesario.
         Me.TIPO_HABITACIONTableAdapter.Fill(Me.BDHotelDataSet.TIPO_HABITACION)
         listarHabitaciones()
@@ -31,7 +34,7 @@ Public Class frmReservaciones
                 lista.Add(obj)
                 listar_habitaciones_reservadas()
             Else
-                MessageBox.Show("Error, habitación no disponible, se encuentra " + Estado.ToLower + ".")
+                MessageBox.Show("Error, habitación no disponible, actualmente se encuentra " + Estado.ToLower + ".")
             End If
         End If
     End Sub
@@ -44,21 +47,41 @@ Public Class frmReservaciones
     Private Sub btnGuardarReserva_Click(sender As Object, e As EventArgs) Handles btnGuardarReserva.Click
         If lista.Count > 0 Then
             Dim obj As New Reservacion
-            obj.idPersona = CType(txtIdPersona.Text, Integer)
+            obj.idPersona = idPersona
             obj.fechaReservacion = Now.Date
             obj.horaReservacion = TimeOfDay
             obj.fechaLlegada = Format(DTPFechaLLegada.Value.ToShortDateString)
             obj.horaLlegada = DTPHoraLlegada.Value 'Format(DTPFechaLLegada.Value.ToShortTimeString)
             obj.listDetalle = lista
-            obj.idTipoReserva = 1
+            obj.idTipoReserva = cbxMedioReserva.SelectedValue
             ReservacionLN.registrar_reservacion(obj)
-            MessageBox.Show("La operación se realizó con éxito, pueden mandar a la mrd a Boy :v")
+            MessageBox.Show("Se realizó la reserva con éxito.")
         Else
-            MessageBox.Show("Debe agregar habitaciones a la reserva")
+            MessageBox.Show("Debe agregar habitaciones a la reserva.")
         End If
     End Sub
 
     Private Sub cbxTiposHab_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxTiposHab.SelectedIndexChanged
         listarHabitaciones()
+    End Sub
+
+    Private Sub btnBuscarPersona_Click(sender As Object, e As EventArgs) Handles btnBuscarPersona.Click
+        Dim objP As New Persona
+        objP.numDocumento = txtIdPersona.Text
+        objP = PersonaLN.listarPersona(objP)
+        idPersona = objP.idPersona
+        txtNombrePersona.Text = objP.nombres + " " + objP.apellPaterno + " " + objP.apellMaterno
+    End Sub
+
+    Private Sub limpiar()
+        DTGVHabitaciones.DataSource = Nothing
+        DTGVHabitacionesReservadas.DataSource = Nothing
+        txtIdPersona.Text = ""
+        txtNombrePersona.Text = ""
+
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
     End Sub
 End Class

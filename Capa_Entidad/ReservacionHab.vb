@@ -1,7 +1,7 @@
 ﻿Public Class ReservacionHab
     Private m_idReservacion As Integer
     Private m_idHabitacion As Integer
-    Private m_numero As String
+    Private m_numero As Integer
     Public Property idReservacion() As Integer
         Get
             Return m_idReservacion

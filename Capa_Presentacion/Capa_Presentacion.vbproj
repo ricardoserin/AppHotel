@@ -78,6 +78,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDHotelDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BDHotelDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDHotelDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.vb">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmReservaciones.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +113,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReservaciones.resx">
       <DependentUpon>frmReservaciones.vb</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +138,17 @@
     <None Include="BDHotelDataSet.xss">
       <DependentUpon>BDHotelDataSet.xsd</DependentUpon>
     </None>
+    <None Include="BDHotelDataSet1.xsc">
+      <DependentUpon>BDHotelDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BDHotelDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDHotelDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDHotelDataSet1.xss">
+      <DependentUpon>BDHotelDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -144,6 +169,63 @@
       <Project>{fd195753-079b-47b9-b9aa-16070b027f8a}</Project>
       <Name>Capa_Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anterior.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modificar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuevo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\primero.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\siguiente.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ultimo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save-2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mas.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menos.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registrar-user.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hotel-wp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

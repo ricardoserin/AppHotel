@@ -6,15 +6,6 @@
     Private m_sexo As String
     Private m_idTipoDocumento As Integer
     Private m_numDocumento As String
-    Private m_detalle As List(Of InfoContacto)
-    Public Property listaDetalle() As List(Of InfoContacto)
-        Get
-            Return m_detalle
-        End Get
-        Set(ByVal value As List(Of InfoContacto))
-            m_detalle = value
-        End Set
-    End Property
     Public Property idPersona() As Integer
         Get
             Return m_idPersona

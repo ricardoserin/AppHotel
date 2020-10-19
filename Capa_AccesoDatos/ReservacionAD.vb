@@ -21,7 +21,6 @@ Public Class ReservacionAD
             cmdR.ExecuteNonQuery()
             cmdD.Parameters.Add("@idReservacion", SqlDbType.Int).Value = cmdR.Parameters.Item("@idReservacion").Value
             For Each det As ReservacionHab In Obj.listDetalle
-                'cmdD.Parameters.Add("@idReservacion", SqlDbType.Int).Value = det.idReservacion
                 cmdD.Parameters.Add("@idHabitacion", SqlDbType.Int).Value = det.idHabitacion
                 cmdD.ExecuteNonQuery()
             Next

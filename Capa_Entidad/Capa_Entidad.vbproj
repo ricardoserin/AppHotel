@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Habitacion.vb" />
-    <Compile Include="InfoContacto.vb" />
     <Compile Include="Persona.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -84,8 +83,6 @@
     </Compile>
     <Compile Include="Reservacion.vb" />
     <Compile Include="ReservacionHab.vb" />
-    <Compile Include="TipoContacto.vb" />
-    <Compile Include="TipoDocumento.vb" />
     <Compile Include="TipoHabitacion.vb" />
   </ItemGroup>
   <ItemGroup>

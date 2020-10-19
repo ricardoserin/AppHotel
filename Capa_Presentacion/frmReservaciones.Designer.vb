@@ -28,6 +28,7 @@ Partial Class frmReservaciones
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtNombrePersona = New System.Windows.Forms.TextBox()
         Me.GBHabitaciones = New System.Windows.Forms.GroupBox()
+        Me.btnRefrescarHabitaciones = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btnAgregarHabitaciones = New System.Windows.Forms.Button()
         Me.DTGVHabitaciones = New System.Windows.Forms.DataGridView()
@@ -39,7 +40,7 @@ Partial Class frmReservaciones
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DTPFechaLLegada = New System.Windows.Forms.DateTimePicker()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.btnRetirarHabitacion = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.DTGVHabitacionesReservadas = New System.Windows.Forms.DataGridView()
@@ -107,6 +108,7 @@ Partial Class frmReservaciones
         '
         Me.GBHabitaciones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GBHabitaciones.Controls.Add(Me.btnRefrescarHabitaciones)
         Me.GBHabitaciones.Controls.Add(Me.Label8)
         Me.GBHabitaciones.Controls.Add(Me.btnAgregarHabitaciones)
         Me.GBHabitaciones.Controls.Add(Me.DTGVHabitaciones)
@@ -118,6 +120,19 @@ Partial Class frmReservaciones
         Me.GBHabitaciones.Size = New System.Drawing.Size(650, 217)
         Me.GBHabitaciones.TabIndex = 4
         Me.GBHabitaciones.TabStop = False
+        '
+        'btnRefrescarHabitaciones
+        '
+        Me.btnRefrescarHabitaciones.BackColor = System.Drawing.Color.Transparent
+        Me.btnRefrescarHabitaciones.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.refresh
+        Me.btnRefrescarHabitaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRefrescarHabitaciones.FlatAppearance.BorderSize = 0
+        Me.btnRefrescarHabitaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefrescarHabitaciones.Location = New System.Drawing.Point(573, 32)
+        Me.btnRefrescarHabitaciones.Name = "btnRefrescarHabitaciones"
+        Me.btnRefrescarHabitaciones.Size = New System.Drawing.Size(32, 32)
+        Me.btnRefrescarHabitaciones.TabIndex = 10
+        Me.btnRefrescarHabitaciones.UseVisualStyleBackColor = False
         '
         'Label8
         '
@@ -164,7 +179,7 @@ Partial Class frmReservaciones
         Me.cbxTiposHab.FormattingEnabled = True
         Me.cbxTiposHab.Location = New System.Drawing.Point(125, 38)
         Me.cbxTiposHab.Name = "cbxTiposHab"
-        Me.cbxTiposHab.Size = New System.Drawing.Size(480, 21)
+        Me.cbxTiposHab.Size = New System.Drawing.Size(442, 21)
         Me.cbxTiposHab.TabIndex = 1
         Me.cbxTiposHab.ValueMember = "IdTipo_Habitacion"
         '
@@ -225,26 +240,26 @@ Partial Class frmReservaciones
         Me.DTPFechaLLegada.Size = New System.Drawing.Size(130, 20)
         Me.DTPFechaLLegada.TabIndex = 5
         '
-        'Button4
+        'btnRetirarHabitacion
         '
-        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.BackColor = System.Drawing.Color.Transparent
-        Me.Button4.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.menos
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Location = New System.Drawing.Point(611, 11)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(32, 32)
-        Me.Button4.TabIndex = 7
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.btnRetirarHabitacion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnRetirarHabitacion.BackColor = System.Drawing.Color.Transparent
+        Me.btnRetirarHabitacion.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.menos
+        Me.btnRetirarHabitacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRetirarHabitacion.FlatAppearance.BorderSize = 0
+        Me.btnRetirarHabitacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRetirarHabitacion.Location = New System.Drawing.Point(611, 11)
+        Me.btnRetirarHabitacion.Name = "btnRetirarHabitacion"
+        Me.btnRetirarHabitacion.Size = New System.Drawing.Size(32, 32)
+        Me.btnRetirarHabitacion.TabIndex = 7
+        Me.btnRetirarHabitacion.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.Button4)
+        Me.GroupBox1.Controls.Add(Me.btnRetirarHabitacion)
         Me.GroupBox1.Controls.Add(Me.DTGVHabitacionesReservadas)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 345)
         Me.GroupBox1.Name = "GroupBox1"
@@ -453,7 +468,7 @@ Partial Class frmReservaciones
     Friend WithEvents Label3 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnGuardarReserva As Button
-    Friend WithEvents Button4 As Button
+    Friend WithEvents btnRetirarHabitacion As Button
     Friend WithEvents DTGVHabitaciones As DataGridView
     Friend WithEvents DTGVHabitacionesReservadas As DataGridView
     Friend WithEvents BDHotelDataSet As BDHotelDataSet
@@ -477,4 +492,5 @@ Partial Class frmReservaciones
     Friend WithEvents btnRegistrarPersona As Button
     Friend WithEvents Label9 As Label
     Friend WithEvents btnClose As Button
+    Friend WithEvents btnRefrescarHabitaciones As Button
 End Class

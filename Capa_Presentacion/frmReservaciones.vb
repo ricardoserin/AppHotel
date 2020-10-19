@@ -51,11 +51,12 @@ Public Class frmReservaciones
             obj.fechaReservacion = Now.Date
             obj.horaReservacion = TimeOfDay
             obj.fechaLlegada = Format(DTPFechaLLegada.Value.ToShortDateString)
-            obj.horaLlegada = DTPHoraLlegada.Value 'Format(DTPFechaLLegada.Value.ToShortTimeString)
+            obj.horaLlegada = DTPHoraLlegada.Value
             obj.listDetalle = lista
             obj.idTipoReserva = cbxMedioReserva.SelectedValue
             ReservacionLN.registrar_reservacion(obj)
             MessageBox.Show("Se realizó la reserva con éxito.")
+            limpiar()
         Else
             MessageBox.Show("Debe agregar habitaciones a la reserva.")
         End If
@@ -78,10 +79,22 @@ Public Class frmReservaciones
         DTGVHabitacionesReservadas.DataSource = Nothing
         txtIdPersona.Text = ""
         txtNombrePersona.Text = ""
-
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
+    End Sub
+
+    Private Sub btnRegresarHabitaciones_Click(sender As Object, e As EventArgs) Handles btnRefrescarHabitaciones.Click
+        listarHabitaciones()
+    End Sub
+
+    Private Sub btnRetirarHabitacion_Click(sender As Object, e As EventArgs) Handles btnRetirarHabitacion.Click
+        lista.RemoveAt(Me.DTGVHabitacionesReservadas.CurrentCell.RowIndex)
+        listar_habitaciones_reservadas()
+    End Sub
+
+    Private Sub btnRegistrarPersona_Click(sender As Object, e As EventArgs) Handles btnRegistrarPersona.Click
+
     End Sub
 End Class

@@ -5,4 +5,8 @@ Public Class ReservacionLN
         Dim objAD As New ReservacionAD
         objAD.registrar_reservacion(objR)
     End Sub
+    'Public Shared Sub listar_reservaciones(objP As Persona)
+    '    Dim objAD As New ReservacionAD
+    '    objAD.listar_reservaciones(objP)
+    'End Sub
 End Class

@@ -25,6 +25,7 @@ Partial Class frmPrincipal
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ReservacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarReservaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -39,7 +40,7 @@ Partial Class frmPrincipal
         '
         'ReservacionesToolStripMenuItem
         '
-        Me.ReservacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarReservaciónToolStripMenuItem})
+        Me.ReservacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarReservaciónToolStripMenuItem, Me.ToolStripMenuItem1})
         Me.ReservacionesToolStripMenuItem.Name = "ReservacionesToolStripMenuItem"
         Me.ReservacionesToolStripMenuItem.Size = New System.Drawing.Size(93, 20)
         Me.ReservacionesToolStripMenuItem.Text = "Reservaciones"
@@ -49,6 +50,12 @@ Partial Class frmPrincipal
         Me.RegistrarReservaciónToolStripMenuItem.Name = "RegistrarReservaciónToolStripMenuItem"
         Me.RegistrarReservaciónToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
         Me.RegistrarReservaciónToolStripMenuItem.Text = "Registrar Reservación"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(186, 22)
+        Me.ToolStripMenuItem1.Text = "Detalles"
         '
         'frmPrincipal
         '
@@ -72,4 +79,5 @@ Partial Class frmPrincipal
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents ReservacionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistrarReservaciónToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
 End Class

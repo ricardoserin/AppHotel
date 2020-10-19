@@ -81,6 +81,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="PersonaLN.vb" />
+    <Compile Include="ReservacionHabLN.vb" />
     <Compile Include="ReservacionLN.vb" />
   </ItemGroup>
   <ItemGroup>

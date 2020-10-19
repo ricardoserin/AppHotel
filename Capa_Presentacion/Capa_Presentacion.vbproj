@@ -83,6 +83,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDHotelDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmDetalleReservaciones.Designer.vb">
+      <DependentUpon>frmDetalleReservaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDetalleReservaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPrincipal.Designer.vb">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </Compile>
@@ -113,6 +119,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmDetalleReservaciones.resx">
+      <DependentUpon>frmDetalleReservaciones.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </EmbeddedResource>
